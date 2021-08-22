@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
 import PresentarEtapa from "./presentarEtapa/PresentarEtapa";
 
-const fetchURL = "http://172.22.19.110:5000";
+const fetchURL = "http://172.17.16.132:5000";
 const getItems = () => fetch(fetchURL).then((res) => res.json());
 
 function Postulantes() {
   const [items, setItems] = useState();
 
   useEffect(() => {
-    getItems().then((data) => setItems(data.a));
+    getItems().then((data) => setItems(data.postulantes));
   }, []);
 
   const eliminarPostulante = (item) => {
-    fetch(`http://172.22.19.110:5000`, {
+    fetch(`http://172.17.16.132:5000`, {
       body: JSON.stringify(item.id),
       headers: {
         "Content-Type": "application/json",
@@ -40,7 +40,7 @@ function Postulantes() {
               >
                 Remover Postulante
               </button>
-              <PresentarEtapa id={item.id}/>
+              <PresentarEtapa id={item.id} preguntas={item.preguntas}/>
             </div>
           );
         })

@@ -3,7 +3,8 @@ import "./presentaretapa.css";
 
 function PresentarEtapa(props) {
   const [etapa, setEtapa] = useState("");
-  const [preguntas, setPreguntas] = useState([
+  const [reloadUsers, setReloadUsers] = useState(false);
+  const plantilla_preguntas = [
     { numero_pregunta: 1, postulante_id: props.id },
     { numero_pregunta: 2, postulante_id: props.id },
     { numero_pregunta: 3, postulante_id: props.id },
@@ -12,8 +13,13 @@ function PresentarEtapa(props) {
     { numero_pregunta: 6, postulante_id: props.id },
     { numero_pregunta: 7, postulante_id: props.id },
     { numero_pregunta: 8, postulante_id: props.id },
-  ]);
-  const [reloadUsers, setReloadUsers] = useState(false);
+  ];
+  const [preguntas, setPreguntas] = useState(plantilla_preguntas)
+  useEffect(() => {
+    if (props.preguntas.length > 0) {
+      setPreguntas(props.preguntas)
+    }
+  },[preguntas, props])
 
   useEffect(() => {
     setReloadUsers(false);
@@ -22,11 +28,10 @@ function PresentarEtapa(props) {
   const enviarEtapa = (e) => {
     const temporal = preguntas;
     const data = temporal.map((item) => {
-      console.log(item);
       item.etapa = etapa;
       return item;
     });
-    fetch(`http://172.22.19.110:5000/preguntas`, {
+    fetch(`http://172.17.16.132:5000/preguntas`, {
       body: JSON.stringify(data),
       headers: {
         "Content-Type": "application/json",
@@ -60,7 +65,7 @@ function PresentarEtapa(props) {
     let temporal = preguntas;
     const data = temporal.map((item, index) => {
       if (i === index) {
-        response === "correcto" ? (item.puntos = 4) : (item.puntos = -1);
+        response === "correcto" ? (item.puntaje = 4) : (item.puntaje = -1);
       }
       return item;
     });
@@ -91,16 +96,23 @@ function PresentarEtapa(props) {
                   x
                 </a>
               )}
-              <h3>Pregunta {item.numero_pregunta}:</h3>
-              <input type="text" placeholder="Descripcion (Opcional)" />
-              <br />
+              <h3>Pregunta {item.numero_pregunta}: </h3>
+              <h4>
+                {item.puntaje && item.puntaje}{" "}
+                {item.puntaje && item.puntaje === 4 && "puntos"}
+                {item.puntaje && item.puntaje === -1 && "punto"}
+              </h4>
               <div>
                 <a
                   onClick={(e) => {
                     puntos(e, "correcto", index);
                   }}
                   href="/"
-                  className={item.puntos && item.puntos === 4? "btn-correcto__select": "btn-correcto"}
+                  className={
+                    item.puntaje && item.puntaje === 4
+                      ? "btn-correcto__select"
+                      : "btn-correcto"
+                  }
                 >
                   Correcto
                 </a>
@@ -109,11 +121,16 @@ function PresentarEtapa(props) {
                     puntos(e, "incorrecto", index);
                   }}
                   href="/"
-                  className={item.puntos && item.puntos === -1? "btn-incorrecto__select": "btn-incorrecto"}
+                  className={
+                    item.puntaje && item.puntaje === -1
+                      ? "btn-incorrecto__select"
+                      : "btn-incorrecto"
+                  }
                 >
                   Incorrecto
                 </a>
               </div>
+              {/* <input type="text" placeholder="Descripcion (Opcional)" /> */}
             </div>
           );
         })}
