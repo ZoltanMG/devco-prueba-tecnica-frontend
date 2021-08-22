@@ -82,6 +82,7 @@ function PresentarEtapa(props) {
           }}
           type="number"
           placeholder="Etapa número..."
+          value={props.length > 0 ? etapa: ""}
         />
         {preguntas.map((item, index) => {
           return (

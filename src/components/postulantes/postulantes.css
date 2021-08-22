@@ -1,0 +1,51 @@
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+article {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.nombre-postulante {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    width: 250px;
+}
+
+.contenedor-postulante{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.subcontenedor-postulante {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.btn-eliminar-postulante{
+    text-decoration: none;
+    padding: 1px 6px;
+    margin-right: 10px;
+    color: white;
+    background-color: #c5c2c2;
+    border-radius: 50%;
+}
+
+.btn-eliminar-postulante:hover{
+    background-color: #8f8c8c;
+}
+
+.nueva-etapa {
+    width: 100px;
+}
