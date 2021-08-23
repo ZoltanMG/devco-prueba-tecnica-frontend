@@ -16,21 +16,14 @@ article {
 .nombre-postulante {
     display: flex;
     align-items: center;
-    padding: 10px;
     width: 250px;
 }
 
-.contenedor-postulante{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
+
 .subcontenedor-postulante {
-    width: 100%;
-    max-width: 400px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    padding: 5px 10px;
 }
 
 .btn-eliminar-postulante{
@@ -46,6 +39,35 @@ article {
     background-color: #8f8c8c;
 }
 
+.btn-cerrar {
+    text-decoration: none;
+    padding: 1px 6px;
+    margin-right: 10px;
+    color: white;
+    background-color: #c5c2c2;
+    border-radius: 4px;
+}
+
+.btn-cerrar:hover{
+    background-color: #8f8c8c;
+}
+
 .nueva-etapa {
-    width: 100px;
+    text-decoration: none;
+    background-color: #00bd94;
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
+}
+.ver-mas {
+    background-color: #00aef3;
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.select {
+    background-color: #e0dfdf;
+    border-radius: 9px;
 }

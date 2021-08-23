@@ -1,0 +1,34 @@
+.contenedor-nueva-etapa {
+    width: 100%;
+    max-width: 600px;
+}
+
+.contenedor-nuevaetapa__preguntas{
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.contenedor-pregunta{
+    max-width: 500px;
+}
+.btn-respuestas {
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 4px;
+    margin: 0px 5px;
+    color: white;
+}
+
+.incorrecta {
+    background-color: red;
+
+}
+
+.correcta {
+    background-color: seagreen;
+}
+
+.contenedor-btn-respuestas {
+    padding: 13px;
+}

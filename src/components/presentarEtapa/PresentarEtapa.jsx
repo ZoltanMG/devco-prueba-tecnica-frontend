@@ -31,7 +31,7 @@ function PresentarEtapa(props) {
       item.etapa = etapa;
       return item;
     });
-    fetch(`http://172.17.16.132:5000/preguntas`, {
+    fetch(`http://172.18.41.163:5000/preguntas`, {
       body: JSON.stringify(data),
       headers: {
         "Content-Type": "application/json",
