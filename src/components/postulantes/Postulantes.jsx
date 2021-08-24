@@ -20,7 +20,7 @@ function Postulantes() {
     e.preventDefault();
     const confirmacion = window.confirm(`¿Desea eliminar a ${item.name}?`);
     if (confirmacion === true) {
-      fetch("http://172.24.236.12:5000", {
+      fetch("http://172.24.236.12:5000/postulantes", {
         body: JSON.stringify(item.id),
         headers: {
           "Content-Type": "application/json",
@@ -54,13 +54,13 @@ function Postulantes() {
   }
   return (
     <main>
-      <h1>Sistema de puntuaciones de postulantes</h1>
+      <h1>SISTEMA DE PUNTUACIÓN DE POSTULANTES</h1>
       <article>
         <section>
           <NuevoPostulante />
         </section>
-        <section>
-          <h2>Postulantes</h2>
+        <section className="contenido">
+          <h2 className="etapa-numero">POSTULANTES</h2>
           {items
             ? items.map((item) => {
                 return (

@@ -95,7 +95,7 @@ function NuevaEtapa(props) {
   }
   return (
     <div className="contenedor-nueva-etapa">
-      <h2>Etapa {numeroEtapa}</h2>
+      <h2 className="etapa-numero">ETAPA {numeroEtapa}</h2>
       <form onSubmit={enviarEtapa}>
         <div className="contenedor-nuevaetapa__preguntas">
           {preguntas.map((item, index) => {
@@ -111,7 +111,7 @@ function NuevaEtapa(props) {
                     className={
                       item.puntaje && item.puntaje === 4
                         ? "btn-respuesta-correcta"
-                        : "btn-respuestas"
+                        : "btn-respuestas grey_correcto"
                     }
                   >
                     Correcta
@@ -124,7 +124,7 @@ function NuevaEtapa(props) {
                     className={
                       item.puntaje && item.puntaje === -1
                         ? "btn-respuesta-incorrecta"
-                        : "btn-respuestas"
+                        : "btn-respuestas grey_incorrecto"
                     }
                   >
                     Incorrecta
@@ -134,8 +134,7 @@ function NuevaEtapa(props) {
                   Descripción (Opcional)
                 </label>
                 <textarea
-                  name=""
-                  id={"pregunta-" + item.numero_pregunta}
+                  name={"pregunta-" + item.numero_pregunta}
                   cols="50"
                   rows="3"
                   onChange={(e) => {
@@ -144,7 +143,7 @@ function NuevaEtapa(props) {
                 ></textarea>
                 <br />
                 {preguntas.length === index + 1 && (
-                  <div>
+                  <div className="contenedor-agregar-eliminar-pregunta">
                     <a
                       href="/"
                       onClick={(e) => {
@@ -169,7 +168,7 @@ function NuevaEtapa(props) {
             );
           })}
         </div>
-        <input type="submit" value="Guardar" />
+        <input className="btn-guardar" type="submit" value="Guardar" />
       </form>
     </div>
   );
