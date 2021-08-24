@@ -95,6 +95,7 @@
   font-size: 25px;
   font-weight: bold;
   transition: 350ms;
+  cursor: pointer;
 }
 .btn-guardar:hover {
   transition: 350ms;

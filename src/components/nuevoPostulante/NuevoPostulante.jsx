@@ -3,10 +3,16 @@ import "./nuevopostulante.css";
 
 function NuevoPostulante() {
   const [nombre, setNombre] = useState("");
+  const [nombreDiligenciado, setNombreDiligenciado] = useState(null);
 
   const enviarPostulante = (e) => {
+    if (nombre === "") {
+      e.preventDefault();
+      setNombreDiligenciado(false)
+      return
+    }
     const data = { nombre: nombre };
-    fetch("http://172.28.8.2:5000/postulantes", {
+    fetch("http://172.24.226.12:5000/postulantes", {
       body: JSON.stringify(data),
       headers: {
         "Content-Type": "application/json",
@@ -35,6 +41,16 @@ function NuevoPostulante() {
             className="btn-agregar_postulante"
           />
         </div>
+        {
+          nombreDiligenciado === false &&
+          <div className="error-ingresar-nombre">
+            <p>Por favor ingrese un nombre... </p>
+            <a href="/" onClick={(e) => {
+              e.preventDefault();
+              setNombreDiligenciado(null)
+            }}>x</a>
+          </div>
+        }
       </form>
     </div>
   );

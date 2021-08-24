@@ -57,7 +57,7 @@ function InformacionPostulante(props) {
   }
 
   const enviarEtapa = (e) => {
-    fetch("http://172.28.8.2:5000/preguntas", {
+    fetch("http://172.24.226.12:5000/preguntas", {
       body: JSON.stringify(preguntas),
       headers: {
         "Content-Type": "application/json",
@@ -71,13 +71,19 @@ function InformacionPostulante(props) {
         return (
           <div key={index}>
             <h2>Etapa {item[0].etapa}</h2>
-            <form onSubmit={enviarEtapa} className={etapas.length === 1 ? "contenedor-preguntas-flex": ""}>
+            <form
+              onSubmit={enviarEtapa}
+              className={etapas.length === 1 ? "contenedor-preguntas-flex" : ""}
+            >
               {item.map((itm, idx) => {
                 return (
                   <div key={idx}>
                     <div className="contenedor-pregunta-puntos">
                       <h3>Pregunta {itm.numero_pregunta}:</h3>
-                      <p> {itm.puntaje} {itm.puntaje === 4? "puntos.": "punto."}</p>
+                      <p>
+                        {" "}
+                        {itm.puntaje} {itm.puntaje === 4 ? "puntos." : "punto."}
+                      </p>
                     </div>
                     <div className="contenedor-btn_actualizar-c-i">
                       <a
@@ -122,7 +128,11 @@ function InformacionPostulante(props) {
                   </div>
                 );
               })}
-              <input className="btn-actualizar" type="submit" value="Actualizar" />
+              <input
+                className="btn-actualizar"
+                type="submit"
+                value="Actualizar"
+              />
             </form>
           </div>
         );

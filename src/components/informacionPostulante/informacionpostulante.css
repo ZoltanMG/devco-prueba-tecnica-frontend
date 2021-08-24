@@ -1,40 +1,41 @@
 .contenedor-info {
-    display: flex;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 }
 
 .contenedor-pregunta-puntos {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .contenedor-pregunta-puntos p {
-    margin-left: 10px;
+  margin-left: 10px;
 }
 
 .contenedor-btn_actualizar-c-i {
-    height: 40px;
+  height: 40px;
 }
 
 .btn-actualizar {
-    margin-top: 20px;
-    width: 100%;
-    padding: 15px;
-    border: none;
-    background-color: #5ee65a;
-    color: white;
-    border-radius: 4px;
-    font-size: 25px;
-    font-weight: bold;
-    transition: 350ms;
-  }
-  .btn-actualizar:hover {
-    transition: 350ms;
-    background-color: #18fa10;
-  }
+  margin-top: 20px;
+  width: 100%;
+  padding: 15px;
+  border: none;
+  background-color: #5ee65a;
+  color: white;
+  border-radius: 4px;
+  font-size: 25px;
+  font-weight: bold;
+  transition: 350ms;
+  cursor: pointer;
+}
+.btn-actualizar:hover {
+  transition: 350ms;
+  background-color: #18fa10;
+}
 
-  .contenedor-preguntas-flex {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-  }
+.contenedor-preguntas-flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}

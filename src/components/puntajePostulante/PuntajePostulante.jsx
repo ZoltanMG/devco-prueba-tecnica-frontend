@@ -60,7 +60,9 @@ function PuntajePostulante(props) {
                 <h4>Total</h4>
                 <div className="puntos">
                   <p className="numero-puntos">{totalPuntos(item)} </p>
-                  <p className="texto-puntos">{totalPuntos(item) === "1" ? "pt." : "pts."}</p>
+                  <p className="texto-puntos">
+                    {totalPuntos(item) === "1" ? "pt." : "pts."}
+                  </p>
                 </div>
               </div>
             </div>

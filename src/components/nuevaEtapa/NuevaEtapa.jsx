@@ -4,6 +4,8 @@ import "./nuevaEtapa.css";
 function NuevaEtapa(props) {
   const [numeroEtapa, setNumeroEtapa] = useState(1);
   const [reloadUsers, setReloadUsers] = useState(false);
+  const [preguntasOk, setPreguntasOk] = useState(null)
+  const [preguntasErr, setPreguntasErr] = useState("")
   const [preguntas, setPreguntas] = useState([
     { numero_pregunta: 1, postulante_id: props.item.id, etapa: numeroEtapa },
     { numero_pregunta: 2, postulante_id: props.item.id, etapa: numeroEtapa },
@@ -28,8 +30,12 @@ function NuevaEtapa(props) {
   }, [reloadUsers, props]);
 
   const enviarEtapa = (e) => {
+    if (validadorPregunta() === false) {
+      e.preventDefault();
+      return
+    }
     guardarEtapa();
-    fetch("http://172.28.8.2:5000/preguntas", {
+    fetch("http://172.24.226.12:5000/preguntas", {
       body: JSON.stringify(preguntas),
       headers: {
         "Content-Type": "application/json",
@@ -93,6 +99,17 @@ function NuevaEtapa(props) {
     setPreguntas(temporal);
     setReloadUsers(true);
   }
+
+  function validadorPregunta() {
+    for (let index in preguntas) {
+      if (!preguntas[index].puntaje){
+        setPreguntasOk(false)
+        setPreguntasErr(preguntas[index].numero_pregunta)
+        return (false)
+      }
+    }
+    return (true)
+  }
   return (
     <div className="contenedor-nueva-etapa">
       <h2 className="etapa-numero">ETAPA {numeroEtapa}</h2>
@@ -101,7 +118,14 @@ function NuevaEtapa(props) {
           {preguntas.map((item, index) => {
             return (
               <div key={item.numero_pregunta} className="contenedor-pregunta">
-                <h3>Pregunta {item.numero_pregunta}{item.puntaje === 4? ": 4 puntos." : (item.puntaje === -1? ": -1 puntos": "")}</h3>
+                <h3>
+                  Pregunta {item.numero_pregunta}
+                  {item.puntaje === 4
+                    ? ": 4 puntos."
+                    : item.puntaje === -1
+                    ? ": -1 puntos"
+                    : ""}
+                </h3>
                 <div className="contenedor-btn-respuestas">
                   <a
                     onClick={(e) => {
@@ -168,6 +192,15 @@ function NuevaEtapa(props) {
             );
           })}
         </div>
+        {preguntasOk === false &&
+        <div className="error-ingresar-nombre">
+          <p>Por favor seleccione “Correcto” o “incorrecto” en la pregunta {preguntasErr}</p>
+          <a href="/" onClick={(e) => {
+              e.preventDefault();
+              setPreguntasOk(null)
+            }}>x</a>
+        </div>
+        }
         <input className="btn-guardar" type="submit" value="Guardar" />
       </form>
     </div>

@@ -36,3 +36,32 @@
   border-radius: 4px;
   box-shadow: inset 0px 2px 15px 2px #e4e4e4;
 }
+
+.error-ingresar-nombre{
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 10px;
+  background-color: #e06868;
+  color: white;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+.error-ingresar-nombre a {
+  text-decoration: none;
+  color: #e06868;
+  background-color: #ebcdcd;
+  border-radius: 4px;
+  padding: 0px 5px;
+  transition: 350ms;
+}
+
+.error-ingresar-nombre a:hover {
+  transition: 350ms;
+  background-color: #fff;
+
+}
+
+.error-ingresar-nombre p {
+  margin-right: 30px;
+}
