@@ -24,6 +24,8 @@ article {
     display: flex;
     align-items: center;
     padding: 5px 10px;
+    border-bottom: solid 1px grey;
+    border-radius: 3px;
 }
 
 .btn-eliminar-postulante{
@@ -32,42 +34,65 @@ article {
     margin-right: 10px;
     color: white;
     background-color: #c5c2c2;
+    transition: 350ms;
     border-radius: 50%;
 }
 
 .btn-eliminar-postulante:hover{
-    background-color: #8f8c8c;
+    transition: 350ms;
+    background-color: #ff4e22;
 }
 
 .btn-cerrar {
     text-decoration: none;
-    padding: 1px 6px;
-    margin-right: 10px;
+    padding: 10px;
     color: white;
-    background-color: #c5c2c2;
+    background-color: #c8654d;
     border-radius: 4px;
 }
 
 .btn-cerrar:hover{
-    background-color: #8f8c8c;
+    background-color: #ff4e22;
 }
 
 .nueva-etapa {
+    margin-left: 5px;
     text-decoration: none;
-    background-color: #00bd94;
-    color: white;
+    color: #49d150f6;
     padding: 10px;
     border-radius: 4px;
+    transition: 350ms;
+    border: solid 1px #49d150f6;
 }
+
+.nueva-etapa:hover {
+    color: white;
+    transition: 350ms;
+    background-color: #49d150f6;
+}
+
 .ver-mas {
+    color: #00aef3;
+    padding: 10px;
+    border-radius: 4px;
+    text-decoration: none;
+    border: solid 1px #00aef3;
+    margin-left: 5px;
+    transition: 350ms;
+}
+
+.ver-mas:hover {
     background-color: #00aef3;
     color: white;
-    padding: 10px;
-    border-radius: 4px;
-    text-decoration: none;
+    transition: 350ms;
+
 }
 
 .select {
-    background-color: #e0dfdf;
+    background-color: rgb(230, 230, 230);
     border-radius: 9px;
+}
+
+.contenedor-infos {
+    padding: 20px;
 }

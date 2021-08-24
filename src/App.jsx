@@ -4,6 +4,7 @@ import Postulantes from "./components/postulantes/Postulantes";
 import "./app.css";
 
 function App() {
+  document.title = "Devco | Prueba técnica"
   return (
     <>
       <Navbar />

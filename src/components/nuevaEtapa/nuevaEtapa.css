@@ -1,11 +1,10 @@
 .contenedor-nueva-etapa {
     width: 100%;
-    max-width: 600px;
 }
 
 .contenedor-nuevaetapa__preguntas{
-
     display: flex;
+    justify-content: space-around;
     flex-wrap: wrap;
 }
 
@@ -16,19 +15,52 @@
     text-decoration: none;
     padding: 10px;
     border-radius: 4px;
-    margin: 0px 5px;
+    margin-right:5px;
     color: white;
+    background-color: #a5a5a5;
 }
 
-.incorrecta {
-    background-color: red;
+.btn-respuestas:hover {
+    background-color: #7c7c7c;
+}
+
+.btn-respuesta-incorrecta {
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 4px;
+    margin-right:5px;
+    color: white;
+    background-color: #ff4d47;
 
 }
 
-.correcta {
-    background-color: seagreen;
+.btn-respuesta-correcta {
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 4px;
+    margin-right:5px;
+    color: white;
+    background-color: #00bd94;
 }
 
 .contenedor-btn-respuestas {
-    padding: 13px;
+    margin: 13px 0px;
+}
+
+.eliminar-pregunta {
+    background-color: #ff1e00;
+    color: white;
+    border-radius: 4px;
+    padding: 3px 5px;
+    margin-bottom: 5px;
+    text-decoration: none;
+}
+
+.agregar-pregunta {
+    background-color: #35c1f8;
+    color: white;
+    border-radius: 4px;
+    padding: 3px 5px;
+    margin-bottom: 5px;
+    text-decoration: none;
 }

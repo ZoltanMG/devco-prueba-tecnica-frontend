@@ -1,11 +1,12 @@
 import React, { useState } from "react";
+import './nuevopostulante.css'
 
 function NuevoPostulante() {
     const [nombre, setNombre] = useState("");
 
     const enviarPostulante = (e) => {
         const data = { nombre: nombre };
-        fetch('http://172.25.154.245:5000', {
+        fetch('http://172.24.236.12:5000', {
             body: JSON.stringify(data),
             headers: {
                 "Content-Type": "application/json",
@@ -23,8 +24,9 @@ function NuevoPostulante() {
                     }}
                     type="text"
                     placeholder="Nombre"
+                    className="input-agregar_postulante"
                 />
-                <button type="submit">Agregar</button>
+                <input type="submit" value="Agregar" className="btn-agregar_postulante"/>
             </form>
         </div>
     );
