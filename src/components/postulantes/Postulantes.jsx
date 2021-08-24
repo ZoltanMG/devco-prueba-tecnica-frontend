@@ -6,7 +6,7 @@ import NuevaEtapa from "../nuevaEtapa/NuevaEtapa";
 import "./postulantes.css";
 
 function Postulantes() {
-  const fetchURL = "http://172.24.236.12:5000";
+  const fetchURL = "http://172.24.226.12:5000";
   const getItems = () => fetch(fetchURL).then((res) => res.json());
   const [items, setItems] = useState();
   const [visible, setVisible] = useState(null);
@@ -20,7 +20,7 @@ function Postulantes() {
     e.preventDefault();
     const confirmacion = window.confirm(`¿Desea eliminar a ${item.name}?`);
     if (confirmacion === true) {
-      fetch("http://172.24.236.12:5000/postulantes", {
+      fetch("http://172.24.226.12:5000/postulantes", {
         body: JSON.stringify(item.id),
         headers: {
           "Content-Type": "application/json",
@@ -60,7 +60,7 @@ function Postulantes() {
           <NuevoPostulante />
         </section>
         <section className="contenido">
-          <h2 className="etapa-numero">POSTULANTES</h2>
+          <h2 className="etapa-numero">{items ? items.length: '0'} POSTULANTES</h2>
           {items
             ? items.map((item) => {
                 return (
@@ -97,7 +97,7 @@ function Postulantes() {
                           href="/"
                         >
                           {item.preguntas.length === 0
-                            ? "Primera etapa"
+                            ? "Etapa inicial"
                             : "Segunda etapa"}
                         </a>
                       )}

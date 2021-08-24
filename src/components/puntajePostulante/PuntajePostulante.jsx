@@ -1,5 +1,5 @@
 import React from "react";
-import './puntajepostulante.css'
+import "./puntajepostulante.css";
 
 function PuntajePostulante(props) {
   const data = props.item;
@@ -46,10 +46,24 @@ function PuntajePostulante(props) {
     <div className="contenedor-puntajes">
       {etapas.map((item, index) => {
         return (
-          <div key={index}>
-            <h4>Etapa {item[0].etapa}</h4>
-            <p>Puntaje total: {totalPuntos(item)} puntos</p>
-            <p>Promedio total: {promedioPuntos(item)} puntos</p>
+          <div key={index} className="cont-resultados-etapa">
+            <h4>ETAPA {item[0].etapa}</h4>
+            <div className="cont-resultados">
+              <div className="cont-primedio">
+                <h4>Promedio</h4>
+                <div className="puntos">
+                  <p className="numero-puntos">{promedioPuntos(item)} </p>
+                  <p className="texto-puntos">pts.</p>
+                </div>
+              </div>
+              <div className="cont-total">
+                <h4>Total</h4>
+                <div className="puntos">
+                  <p className="numero-puntos">{totalPuntos(item)} </p>
+                  <p className="texto-puntos">{totalPuntos(item) === "1" ? "pt." : "pts."}</p>
+                </div>
+              </div>
+            </div>
           </div>
         );
       })}

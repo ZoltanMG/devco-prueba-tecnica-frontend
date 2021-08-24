@@ -29,7 +29,7 @@ function NuevaEtapa(props) {
 
   const enviarEtapa = (e) => {
     guardarEtapa();
-    fetch("http://172.24.236.12:5000/preguntas", {
+    fetch("http://172.24.226.12:5000/preguntas", {
       body: JSON.stringify(preguntas),
       headers: {
         "Content-Type": "application/json",
@@ -101,7 +101,7 @@ function NuevaEtapa(props) {
           {preguntas.map((item, index) => {
             return (
               <div key={item.numero_pregunta} className="contenedor-pregunta">
-                <h3>Pregunta {item.numero_pregunta}:</h3>
+                <h3>Pregunta {item.numero_pregunta}{item.puntaje === 4? ": 4 puntos." : (item.puntaje === -1? ": -1 puntos": "")}</h3>
                 <div className="contenedor-btn-respuestas">
                   <a
                     onClick={(e) => {

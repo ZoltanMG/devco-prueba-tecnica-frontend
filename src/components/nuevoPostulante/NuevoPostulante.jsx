@@ -6,7 +6,7 @@ function NuevoPostulante() {
 
   const enviarPostulante = (e) => {
     const data = { nombre: nombre };
-    fetch("http://172.24.236.12:5000/postulantes", {
+    fetch("http://172.24.226.12:5000/postulantes", {
       body: JSON.stringify(data),
       headers: {
         "Content-Type": "application/json",
