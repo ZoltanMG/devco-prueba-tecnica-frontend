@@ -6,7 +6,7 @@ import NuevaEtapa from "../nuevaEtapa/NuevaEtapa";
 import "./postulantes.css";
 
 function Postulantes() {
-  const fetchURL = "http://172.24.226.12:5000";
+  const fetchURL = "http://172.28.8.2:5000";
   const getItems = () => fetch(fetchURL).then((res) => res.json());
   const [items, setItems] = useState();
   const [visible, setVisible] = useState(null);
@@ -20,7 +20,7 @@ function Postulantes() {
     e.preventDefault();
     const confirmacion = window.confirm(`¿Desea eliminar a ${item.name}?`);
     if (confirmacion === true) {
-      fetch("http://172.24.226.12:5000/postulantes", {
+      fetch("http://172.28.8.2:5000/postulantes", {
         body: JSON.stringify(item.id),
         headers: {
           "Content-Type": "application/json",
