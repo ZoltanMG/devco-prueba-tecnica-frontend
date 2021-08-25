@@ -2,14 +2,16 @@ import React, { useState } from "react";
 import "./nuevopostulante.css";
 
 function NuevoPostulante() {
+  //este componente envia los datos de un postulante para almacenarlo
   const [nombre, setNombre] = useState("");
   const [nombreDiligenciado, setNombreDiligenciado] = useState(null);
 
   const enviarPostulante = (e) => {
+    // envía un json con los datos del nuevo postulante a la api
     if (nombre === "") {
       e.preventDefault();
-      setNombreDiligenciado(false)
-      return
+      setNombreDiligenciado(false);
+      return;
     }
     const data = { nombre: nombre };
     fetch("http://172.29.253.19:5000/postulantes", {
@@ -41,16 +43,20 @@ function NuevoPostulante() {
             className="btn-agregar_postulante"
           />
         </div>
-        {
-          nombreDiligenciado === false &&
+        {nombreDiligenciado === false && (
           <div className="error-ingresar-nombre">
             <p>Por favor ingrese un nombre... </p>
-            <a href="/" onClick={(e) => {
-              e.preventDefault();
-              setNombreDiligenciado(null)
-            }}>x</a>
+            <a
+              href="/"
+              onClick={(e) => {
+                e.preventDefault();
+                setNombreDiligenciado(null);
+              }}
+            >
+              x
+            </a>
           </div>
-        }
+        )}
       </form>
     </div>
   );

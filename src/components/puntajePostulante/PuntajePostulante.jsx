@@ -2,11 +2,14 @@ import React from "react";
 import "./puntajepostulante.css";
 
 function PuntajePostulante(props) {
+  // Este componente realiza los cálculos de los promedios y
+  // suma total de los puntos
   const data = props.item;
   const preguntas = data.preguntas;
   const etapas = separarEtapas();
 
   function promedioPuntos(item) {
+    // cálcula el primedio de cada etapa del postulante
     let totalPuntos = 0;
     item.map((item) => {
       totalPuntos = totalPuntos + item.puntaje;
@@ -17,6 +20,7 @@ function PuntajePostulante(props) {
   }
 
   function totalPuntos(item) {
+    // cálcula la suma total de cada etapa del postulante
     let totalPuntos = 0;
     item.map((item) => {
       totalPuntos = totalPuntos + item.puntaje;
@@ -26,6 +30,7 @@ function PuntajePostulante(props) {
   }
 
   function separarEtapas() {
+    // separa las etapas para renderizarlo
     let allEtapas = [];
     let etapas1 = [];
     let etapas2 = [];

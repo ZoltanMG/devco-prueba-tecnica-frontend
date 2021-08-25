@@ -2,16 +2,22 @@ import React, { useEffect, useState } from "react";
 import "./informacionpostulante.css";
 
 function InformacionPostulante(props) {
+  // Este componente permite visualizar las respuestas
+  // una por una guardadas previamente y también
+  // permite actualizarlas de ser necesario
   let datos = props.item;
   const preguntas = datos.preguntas;
   const [reloadUsers, setReloadUsers] = useState(false);
   const etapas = separarEtapas();
 
   useEffect(() => {
+    // Aquí podemos renderizar de nuevo los componenetes
+    // al usar el codigo setReloadUsers(true) en otras funciones
     setReloadUsers(false);
   }, [reloadUsers, props]);
 
   function separarEtapas() {
+    // devuelve un array con las preguntas de cada etapa por separado
     let allEtapas = [];
     let etapas1 = [];
     let etapas2 = [];
@@ -30,6 +36,7 @@ function InformacionPostulante(props) {
   }
 
   function puntos(e, response, id) {
+    // asigna un valor de 4 o -1 según seleccione “correcto” o “incorrecto”
     e.preventDefault();
     let temporal = preguntas;
     const data = temporal.map((item) => {
@@ -43,6 +50,7 @@ function InformacionPostulante(props) {
   }
 
   function guardarDescripcion(e, item) {
+    // Almacena en cada pregunta el atributo “descripción”
     const preguntasCopy = preguntas;
 
     const data = preguntasCopy.map((i) => {
@@ -57,6 +65,7 @@ function InformacionPostulante(props) {
   }
 
   const enviarEtapa = (e) => {
+    // envía un Json a la api con los datos a actualizar
     fetch("http://172.29.253.19:5000/preguntas", {
       body: JSON.stringify(preguntas),
       headers: {
