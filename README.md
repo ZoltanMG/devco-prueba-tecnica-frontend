@@ -1,70 +1,107 @@
-# Getting Started with Create React App
+<h3 align="center">SISTEMA DE PUNTUACIÓN DE POSTULANTES</h3>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<!-- Tabla de contenido -->
+<details open="open">
+  <summary>Tabla de contenido</summary>
+  <ol>
+    <li>
+      <a href="#projecto-devco">Projecto Devco</a>
+    </li>
+    <li>
+      <a href="#tecnologias">Tecnologías</a>
+    </li>
+    <li><a href="#diagramas">Diagramas</a></li>
+    <li><a href="#iniciar-appweb-en-back-end">Iniciar appWeb en Back-End</a></li>
+    <li><a href="#iniciar-appweb-en-front-end">Iniciar appWeb en Front-End</a></li>
+    <li><a href="#uso">Uso</a></li>
+  </ol>
+</details>
 
-## Available Scripts
+## Projecto Devco
 
-In the project directory, you can run:
+<img src="./imagenes/Capture.PNG" alt="SISTEMA DE PUNTUACIÓN DE POSTULANTES"/>
 
-### `npm start`
+Este proyecto es la realización de la prueba técnica de <a href="https://www.devco.com.co/">Devco</a> que consiste en calcular el puntaje promedio de cada candidato con el fin de determinar si es apto para ingresar como un nuevo empleado. La puntuación de cada uno se calcula con base en el número de respuestas correctas e incorrectas a una prueba. Se define que la puntuación a una respuesta incorrecta es de -1 y el de las correctas es 4. La cantidad de preguntas para la etapa inicial es de 8 preguntas, pero el gerente técnico piensa que podrían ser más o menos preguntas en la segunda etapa, dependiendo del resultado de la evaluación de la primera etapa de postulantes.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Tecnologias
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- [Flask](https://flask.palletsprojects.com/en/1.1.x/)
+- [React](https://reactjs.org/)
+- [Mysql](https://www.mysql.com/)
 
-### `npm test`
+## Diagramas
+* Arquitectura
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    <img src="./imagenes/diagrama_arquitectura_Mesa de trabajo 1.png" alt="diagrama de arquitectura"/>
+* Base de datos
 
-### `npm run build`
+    <img src="./imagenes/diagrama_db-02.png" alt="diagrama de base de datos"/>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Iniciar appWeb en Back End
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Prerrequisitos:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- instalar:
 
-### `npm run eject`
+* Flask:
+  ```sh
+  pip3 install flask
+  ```
+* Flask_cors:
+  ```sh
+  pip3 install -U flask-cors
+  ```
+* MySql:
+  ```sh
+  sudo apt install mysql-server
+  ```
+* SQLAlchemy:
+  ```sh
+  pip3 install -U Flask-SQLAlchemy
+  ```
+* Mysqldb:
+  ```sh
+  sudo apt-get install python3-mysqldb
+  ```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Inicar Back-End:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+-  Clone el repo
+   ```sh
+   git clone https://github.com/ZoltanMG/devco-prueba-tecnica-backend.git
+   ```
+- En la raíz del repositorio ejecute el script ./restart,
+  esto creará el usuario, base de datos y tablas en MySql:
+  ```sh
+  ./restart
+  ```
+- En la raíz del repositorio ejecute el script ./run,
+  esto ejecutará la app con en Flask con las variables de entorn.
+  ```sh
+  ./run
+  ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## iniciar appWeb en Front-End
+1. Clone el repo
+   ```sh
+   git clone https://github.com/ZoltanMG/devco-prueba-tecnica-frontend.git
+   ```
+2. Instale NPM packages
+   ```sh
+   npm install
+   ```
+3. Ejecute comando npm start
+   ```sh
+   yarn start
+   ```
+4. Mira tu Browser!
 
-## Learn More
+## uso
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* Crear postulantes
+* Eliminar postulantes
+* presentar etapa inicial del postulante y calcular promedio y total de puntos
+* presentar segunda etapa y calcular promedio y total de puntos
+* ver las respuestas seleccionadas anteriormente y actualizarlas
+* no permite crear registros vacíos

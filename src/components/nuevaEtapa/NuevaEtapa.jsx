@@ -35,7 +35,7 @@ function NuevaEtapa(props) {
       return
     }
     guardarEtapa();
-    fetch("http://172.24.226.12:5000/preguntas", {
+    fetch("http://172.29.253.19:5000/preguntas", {
       body: JSON.stringify(preguntas),
       headers: {
         "Content-Type": "application/json",

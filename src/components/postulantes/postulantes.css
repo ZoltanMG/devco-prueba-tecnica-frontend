@@ -16,7 +16,7 @@ article {
 .nombre-postulante {
   display: flex;
   align-items: center;
-  width: 250px;
+  width: 400px;
 }
 
 .subcontenedor-postulante {

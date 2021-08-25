@@ -12,7 +12,7 @@ function NuevoPostulante() {
       return
     }
     const data = { nombre: nombre };
-    fetch("http://172.24.226.12:5000/postulantes", {
+    fetch("http://172.29.253.19:5000/postulantes", {
       body: JSON.stringify(data),
       headers: {
         "Content-Type": "application/json",
